@@ -4,17 +4,12 @@ const moviesSection = document.getElementById('movies-section');
 const iconBefore = document.getElementById('icon');
 const errorMessage = document.getElementById('error-message');
 let movies = [];
-let searchValue;
 btnSearch.disabled = true;
 
 searchInput.addEventListener('input', () => {
-    searchValue = searchInput.value.trim();
-    if (searchValue === ''){
-        btnSearch.disabled = true;
-        
-    } else {
-        btnSearch.disabled = false;
-    }
+    const searchValue = searchInput.value.trim();
+    btnSearch.disabled = searchValue === '';
+    btnSearch.style.cursor = searchValue === '' ? 'not-allowed' : 'pointer';
 })
 
 
