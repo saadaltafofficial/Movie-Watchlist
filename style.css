@@ -40,8 +40,14 @@ header {
     font-weight: 800;
 }
 
-.hero-text p {
+.hero-text a{
     font-size: .85rem;
+    text-decoration: none;
+    color: white;
+}
+
+.hero-text a:hover {
+    cursor: pointer;
 }
 
 .overlay {
@@ -79,6 +85,7 @@ header {
     font-family: inherit;
     background: #2E2E2F;
     width: 50vw;
+    color: whitesmoke;
 }
 
 #searchBtn{
@@ -90,6 +97,7 @@ header {
     color: whitesmoke;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    cursor: pointer;
 }
 
 .ri-search-line {
@@ -115,7 +123,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    visibility: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -132,25 +139,49 @@ main {
     font-size: 1.5rem;
 }
 
+.hidden {
+    visibility: hidden !important;
+}
+
+.error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(77, 76, 76);
+    width: 80%;
+}
+
+
 
 /* MOVIE ITEM */
+
+
+.movies {
+    display: grid;
+    margin-top: 3em;
+}
 
 .movie {
     display: flex;
     align-items: center;
-    margin: 3em 1.5em;
-    padding-bottom: 2em;
+    margin: 0 1.5em;
+    padding: 2em;
     gap: 1em;
     border-bottom:1px solid #2C2C2C;
 }
 
 .movie img {
-    height: 100px;
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
 }
 
 .movie-details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: start;
 }
 
@@ -162,13 +193,37 @@ main {
     margin: .5em 0;
 }
 .movie-further-details span {
-    margin-right: 1em;
+    margin-right: 2em;
 }
 
 .movie-details  p{
     font-size: .8rem;
+    max-width: 300px;
 }
 
 .ri-add-circle-fill {
     margin-right: .2em;
+}
+
+.watchlist:hover {
+    cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 800px) {
+    .movies {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-text {
+        padding: 3em;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .movies {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .hero-text {
+        padding: 3em;
+    }
 }
