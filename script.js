@@ -10,7 +10,8 @@ btnSearch.disabled = true;
 searchInput.addEventListener('input', () => {
     searchValue = searchInput.value.trim();
     if (searchValue === ''){
-        btnSearch.disabled = true;!important
+        btnSearch.disabled = true;
+        
     } else {
         btnSearch.disabled = false;
     }
@@ -21,7 +22,7 @@ searchInput.addEventListener('input', () => {
 btnSearch.addEventListener('click', () => {
     iconBefore.classList.add('hidden');
     removeMovies()
-    handleRequest(searchInput.value)
+    handleRequest(searchInput.value);
 })
 
 // This function is removing the movies from the last search result

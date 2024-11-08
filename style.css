@@ -202,7 +202,11 @@ main {
 
 .movie-details  p{
     font-size: .8rem;
-    max-width: 300px;
+    max-width: 350px;
+}
+
+.movie-details h3 {
+    max-width: 350px;
 }
 
 .ri-add-circle-fill {
