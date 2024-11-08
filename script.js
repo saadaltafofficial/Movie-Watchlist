@@ -4,15 +4,24 @@ const moviesSection = document.getElementById('movies-section');
 const iconBefore = document.getElementById('icon');
 const errorMessage = document.getElementById('error-message');
 let movies = [];
-console.log(movies)
+let searchValue;
+btnSearch.disabled = true;
+
+searchInput.addEventListener('input', () => {
+    searchValue = searchInput.value.trim();
+    if (searchValue === ''){
+        btnSearch.disabled = true;!important
+    } else {
+        btnSearch.disabled = false;
+    }
+})
 
 
 // This button is calling api and searching for movies
 btnSearch.addEventListener('click', () => {
     iconBefore.classList.add('hidden');
-    searchValue = searchInput.value;
     removeMovies()
-    handleRequest(searchValue)
+    handleRequest(searchInput.value)
 })
 
 // This function is removing the movies from the last search result
@@ -22,6 +31,7 @@ function removeMovies () {
 
 // This function is hadling the response from the api
 async function handleRequest(search) {
+    searchInput.value = ''
     const res = await fetch(`http://www.omdbapi.com/?s=${search}&i=tt3896198&apikey=433b12bb`)
     const data = await res.json()
     movies = data.Search

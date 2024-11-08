@@ -100,6 +100,10 @@ header {
     cursor: pointer;
 }
 
+/* #searchBtn:hover {
+    cursor: not-allowed;
+} */
+
 .ri-search-line {
     padding: .8em 1.5em;
     background: #2E2E2F;
@@ -160,7 +164,7 @@ main {
 
 .movies {
     display: grid;
-    margin-top: 3em;
+    margin: 3em 0;
 }
 
 .movie {
